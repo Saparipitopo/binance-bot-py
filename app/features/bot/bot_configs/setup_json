@@ -1,0 +1,6 @@
+{
+    "is_test": false,
+    "symbol": "ftmusdt",
+    "amount_in_usdt": 10.0,
+    "leverage": "10"
+}

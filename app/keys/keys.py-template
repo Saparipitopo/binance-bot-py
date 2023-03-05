@@ -1,0 +1,6 @@
+#Create in this same directory a file called keys.py with the following code:
+
+class UserKeys:
+    def __init__(self):
+        self.api_key_public = "here goes your public key"
+        self.api_key_secret = "here goes your secret key"
