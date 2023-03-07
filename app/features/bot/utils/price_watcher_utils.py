@@ -1,5 +1,6 @@
 from app.features.bot.data.repositories.binance_remote_repository import BinanceRemoteRepository
 
+
 class PriceWatcherUtils:
     def __init__(self, binance_repository: BinanceRemoteRepository):
         self.binance_repository = binance_repository

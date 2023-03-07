@@ -1,6 +1,7 @@
 import datetime
 from app.features.bot.utils.counter_utils import CounterUtils
 
+
 class PrintUtils:
     def __init__(self, counter: CounterUtils):
         self.counter = counter
@@ -13,7 +14,6 @@ class PrintUtils:
 
         print(*to_print, sep='\n')
 
-
     def print_sl_action_info(self, next_action):
         to_print = ['*****************',
                     'Initializing stop loss iteration',
@@ -21,7 +21,6 @@ class PrintUtils:
                     '*****************']
 
         print(*to_print, sep='\n')
-
 
     def print_waiting_tp_sl(self, tp, sl, price):
         to_print = ['*****************',
@@ -34,7 +33,9 @@ class PrintUtils:
 
     def print_waiting_for_high_low(self, high, low, price):
         to_print = ['*****************',
-                    'Waiting for high (' + str(high) + ' percentage: ' + str(round(abs(100 - (high * 100) / price), 3)) + '), or low (' + str(low) + ' percentage: ' + str(round(abs(100 - (low * 100) / price), 3)) + ')',
+                    'Waiting for high (' + str(high) + ' percentage: ' + str(
+                        round(abs(100 - (high * 100) / price), 3)) + '), or low (' + str(low) + ' percentage: ' + str(
+                        round(abs(100 - (low * 100) / price), 3)) + ')',
                     '*****************']
 
         print(*to_print, sep='\n')
@@ -42,12 +43,13 @@ class PrintUtils:
     def print_breakpoints(self, price, breakpoints):
         to_print = ['*****************',
                     'Initial breakpoints',
-                    'Long band: ' + str(breakpoints.high) + ' percentage: ' + str(round(abs(100 - (breakpoints.high * 100) / price), 3)),
-                    'Short band: ' + str(breakpoints.low) + ' percentage: ' + str(round(abs(100 - (breakpoints.low * 100) / price), 3)),
+                    'Long band: ' + str(breakpoints.high) + ' percentage: ' + str(
+                        round(abs(100 - (breakpoints.high * 100) / price), 3)),
+                    'Short band: ' + str(breakpoints.low) + ' percentage: ' + str(
+                        round(abs(100 - (breakpoints.low * 100) / price), 3)),
                     '*****************']
 
         print(*to_print, sep='\n')
-
 
     def print_initialize(self, amount_in_usdt, amount_to_operate, coin_price):
         self.print_time()
@@ -60,7 +62,6 @@ class PrintUtils:
 
         print(*to_print, sep='\n')
 
-
     def print_time(self):
         to_print = ["\n @ " + str(datetime.datetime.now())]
 
@@ -72,7 +73,7 @@ class PrintUtils:
         to_print = ['******************',
                     '***   Profit   ***',
                     '******************']
-        
+
         self.counter.add_take_profit_streak()
         self.counter.reset_stop_loss_streak()
 
@@ -84,7 +85,7 @@ class PrintUtils:
         to_print = ['******************',
                     '***    Loss    ***',
                     '******************']
-        
+
         print(*to_print, sep='\n')
 
         self.counter.add_stop_loss_count()

@@ -17,9 +17,6 @@ class CounterUtils:
     def add_stop_loss_count(self):
         self.stop_loss_count = self.stop_loss_count + 1
 
-    def add_recovery_stop_loss_count(self):
-        self.recovery_stop_loss_count = self.recovery_stop_loss_count + 1
-
     def add_take_profit_streak(self):
         self.take_profit_count = self.take_profit_count + 1
 
@@ -28,9 +25,6 @@ class CounterUtils:
 
     def add_stop_loss_streak(self):
         self.stop_loss_streak = self.stop_loss_streak + 1
-
-    def add_recovery_count(self):
-        self.recovered_count = self.recovered_count + 1
 
     def print_counters(self):
         print('Take profit count: ', self.take_profit_count)
@@ -50,9 +44,7 @@ class CounterUtils:
         return is_take_profit_multiplier
 
     def should_enter_inversion_mode(self) -> bool:
-        is_inversion_multiplier = self.is_multiplier_unique(self.inversion_mode_count, self.recovery_stop_loss_count)
-        if is_inversion_multiplier:
-            self.recovery_stop_loss_count = 0
+        is_inversion_multiplier = self.is_multiplier_unique(self.inversion_mode_count, self.inversion_mode_count)
 
         return is_inversion_multiplier
     

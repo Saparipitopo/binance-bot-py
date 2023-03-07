@@ -1,6 +1,7 @@
 import json
 import pathlib
 
+
 class UserInputUtils:
     def __init__(self):
         # initial setup

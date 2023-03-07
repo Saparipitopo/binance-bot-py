@@ -77,7 +77,7 @@ class Bot:
         else:
             # printing on terminal the breakpoints
             self.print_utils.print_breakpoints(price=coin_price,
-                                               breakpoints=Breakpoints)
+                                               breakpoints=breakpoints)
             # comparing price with the two values of the breakpoints and returning the value that matched
             self.print_utils.print_waiting_for_high_low(breakpoints.high, breakpoints.low, coin_price)
             match = await self.price_watcher.watch_price_until_condition(symbol=symbol,
@@ -103,7 +103,8 @@ class Bot:
             # opening the order
             open_order = self.repository.open_order(order=order)
 
-            # if is_test is ture, then there's not an real order on binance to check the value, so it uses the token price when it was supposed to open the order
+            # if is_test is ture, then there's not an real order on binance to check the value, so it uses the token
+            # price when it was supposed to open the order
             if self.is_test:
                 order_price = coin_price
             else:
@@ -142,7 +143,8 @@ class Bot:
             # opening the order
             open_order = self.repository.open_order(order=order)
 
-            # if is_test is ture, then there's not an real order on binance to check the value, so it uses the token price when it was supposed to open the order
+            # if is_test is ture, then there's not an real order on binance to check the value, so it uses the token
+            # price when it was supposed to open the order
             if self.is_test:
                 order_price = coin_price
             else:
